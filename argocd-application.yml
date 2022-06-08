@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-vault-plugin-poc
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/nicolimo86/arogcd-vault-plugin-demo.git
+    targetRevision: HEAD
+    path: manifests
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: argocd-vault-plugin-poc
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
