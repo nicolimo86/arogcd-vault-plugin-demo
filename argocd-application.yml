@@ -10,6 +10,8 @@ spec:
     repoURL: https://github.com/nicolimo86/arogcd-vault-plugin-demo.git
     targetRevision: HEAD
     path: manifests
+    plugin:
+      name: argocd-vault-plugin
   destination: 
     server: https://kubernetes.default.svc
     namespace: argocd-vault-plugin-poc
